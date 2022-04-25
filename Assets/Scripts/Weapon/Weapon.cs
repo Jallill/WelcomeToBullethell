@@ -7,8 +7,8 @@ public class Weapon : MonoBehaviour, IWeapon
     
     public void Shoot(Vector3 direction)
     {
-        var bullet = Instantiate(_weaponSO.Bullet, _bulletSpawnPosition.position, transform.rotation);
+        var bullet = Instantiate(_weaponSO.Bullet, _bulletSpawnPosition.position, _bulletSpawnPosition.rotation);
         bullet.Init(_bulletSpawnPosition.forward);
-        Debug.DrawLine(_bulletSpawnPosition.position, _bulletSpawnPosition.forward + _bulletSpawnPosition.forward*1000, Color.magenta, 1000000);
+        Debug.DrawLine(_bulletSpawnPosition.position, _bulletSpawnPosition.forward + _bulletSpawnPosition.forward*1000, Color.magenta, 1f);
     }
 }

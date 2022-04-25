@@ -26,8 +26,8 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_direction * (_bulletSo.Speed*Time.deltaTime));
-        Debug.DrawLine(transform.position, transform.position + transform.forward*10, Color.blue, 1000f);
+        transform.Translate(_direction * (_bulletSo.Speed*Time.deltaTime), Space.World);
+        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.blue);
     }
 
     public void Init(Vector3 direction)

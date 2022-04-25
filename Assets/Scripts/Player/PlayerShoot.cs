@@ -1,18 +1,22 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
-    private IWeapon _weapon;
+    [SerializeField] private WeaponInventory _weaponInventory;
+
+    private IWeapon _primaryWeapon;
+    
     private void Awake()
     {
-            _playerInput.FireEvent += Shoot;
-        _weapon = GetComponent<IWeapon>();
+        _primaryWeapon = _weaponInventory.GetWeapon(0);
     }
 
-    private void Shoot()
+    private void Update()
     {
-        _weapon?.Shoot(transform.forward);
+        
+        if(_playerInput.FirePerformed) _primaryWeapon?.Shoot(transform.forward);
     }
 }
