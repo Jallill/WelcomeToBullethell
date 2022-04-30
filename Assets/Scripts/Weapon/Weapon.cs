@@ -2,13 +2,15 @@
 
 public class Weapon : MonoBehaviour, IWeapon
 {
-    [SerializeField] private WeaponSO _weaponSO;
-    [SerializeField] private Transform _bulletSpawnPosition;
+    [SerializeField] protected WeaponSO _weaponSO;
+    [SerializeField] protected Transform _bulletSpawnPosition;
+
+    private float _cooldown;
+    protected bool OnCooldown => Time.time < _cooldown;
     
-    public void Shoot(Vector3 direction)
+    public virtual void Shoot(Vector3 direction)
     {
-        var bullet = Instantiate(_weaponSO.Bullet, _bulletSpawnPosition.position, _bulletSpawnPosition.rotation);
-        bullet.Init(_bulletSpawnPosition.forward);
-        Debug.DrawLine(_bulletSpawnPosition.position, _bulletSpawnPosition.forward + _bulletSpawnPosition.forward*1000, Color.magenta, 1f);
+        if (OnCooldown) return;
+        _cooldown = Time.time + _weaponSO.RateOfFire;
     }
 }

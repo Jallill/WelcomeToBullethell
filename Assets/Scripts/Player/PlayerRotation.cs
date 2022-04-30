@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerRotation : MonoBehaviour
 {
     private Camera _camera;
-    
     private void Start()
     {
         _camera = Camera.main;
@@ -14,7 +13,7 @@ public class PlayerRotation : MonoBehaviour
 
     void Update()
     {
-        Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue()); //TODO: Change it so the PlayerInput is the one returning the Vector3 position of the mouse
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
 
         if (groundPlane.Raycast(cameraRay, out var rayLength))

@@ -7,11 +7,11 @@ public class WeaponInventory : MonoBehaviour
 
     private void Awake()
     {
-        _weapons[0] = GetComponent<IWeapon>(); // Use factory tu create all the weapons?
+        _weapons = GetComponents<IWeapon>(); // Use factory tu create all the weapons?
     }
 
     public IWeapon GetWeapon(int index = 0)
     {
-        return _weapons[0];
+        return _weapons[index];
     }
 }
