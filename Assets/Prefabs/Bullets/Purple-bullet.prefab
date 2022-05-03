@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4574681506954175136}
   - component: {fileID: 4574681506954175139}
   - component: {fileID: 4574681506954175138}
-  - component: {fileID: 4574681506954175141}
   - component: {fileID: 6136759598645972959}
+  - component: {fileID: 4574681506954175141}
   m_Layer: 6
   m_Name: Purple-bullet
   m_TagString: Bullet
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8b11b5966ef04dd449d3618d8393d636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,19 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4574681506954175141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4574681506954175140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b200629f8db835e4cb388b9f3c7cec07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletSo: {fileID: 11400000, guid: 6c4fa3dce177d4846b2044b589707ca2, type: 2}
 --- !u!54 &6136759598645972959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4574681506954175141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574681506954175140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b200629f8db835e4cb388b9f3c7cec07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSo: {fileID: 11400000, guid: 6c4fa3dce177d4846b2044b589707ca2, type: 2}

@@ -18,9 +18,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var damageable = other.gameObject.GetComponent<IDamageable>();
-        if(damageable != null && other.gameObject.layer == _bulletSo.DamageLayer)
+        if(damageable != null && ((1<<other.gameObject.layer) & _bulletSo.DamageLayer) != 0)
         {
             damageable.DealDamage(_bulletSo.Damage);
+            Deact();            
         }    
     }
 

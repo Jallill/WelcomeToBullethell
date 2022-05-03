@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62666f289547433c9c027e3b42001eda, type: 3}
-  m_Name: Bullet-player
+  m_Script: {fileID: 11500000, guid: 28aa563fc6364b01897fffa3b5b2db58, type: 3}
+  m_Name: Enemy-turret
   m_EditorClassIdentifier: 
-  _speed: 3
-  _lifespan: 2
-  _damage: 10
-  _material: {fileID: 2100000, guid: 8b11b5966ef04dd449d3618d8393d636, type: 2}
-  _damageLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  _maxHealth: 100
+  _bullet: {fileID: 213214137937674736, guid: e11d61ef0464da44d9919c664348c44b, type: 3}
