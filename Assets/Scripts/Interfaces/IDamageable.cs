@@ -1,5 +1,7 @@
 ﻿
-public interface IDamageable
+using UnityEngine;
+
+public interface IDamageable<DamageType>
 {
-        void DealDamage(float damage);
+        void DealDamage(float damage, DamageType damageType);
 }

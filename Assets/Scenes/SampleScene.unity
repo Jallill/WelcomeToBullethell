@@ -1624,13 +1624,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2564251578353425109, guid: 2fb78e4054ed45a4cb777e6e18ed1b2f, type: 3}
-      propertyPath: _groundLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 2564251578353425116, guid: 2fb78e4054ed45a4cb777e6e18ed1b2f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732536185690315280, guid: 2fb78e4054ed45a4cb777e6e18ed1b2f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732536185690315280, guid: 2fb78e4054ed45a4cb777e6e18ed1b2f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fb78e4054ed45a4cb777e6e18ed1b2f, type: 3}

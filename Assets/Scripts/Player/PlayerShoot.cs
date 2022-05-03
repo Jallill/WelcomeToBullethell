@@ -21,7 +21,13 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         if(!_playerController.IsGrounded()) return;
-        if(_playerInput.PrimaryFirePerformed) _primaryWeapon?.Shoot(transform.forward);
-        if (_playerInput.SecondaryFirePerformed) _secondaryWeapon?.Shoot(transform.forward);
+        if (_playerInput.PrimaryFirePerformed)
+        {
+            _primaryWeapon?.Shoot(transform.forward);
+        } 
+        else if (_playerInput.SecondaryFirePerformed)
+        {
+            _secondaryWeapon?.Shoot(transform.forward);
+        }
     }
 }

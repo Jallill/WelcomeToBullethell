@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62666f289547433c9c027e3b42001eda, type: 3}
-  m_Name: Bullet-player
+  m_Script: {fileID: 11500000, guid: 249de103e3f04d16a9f7d1be3fe9eb14, type: 3}
+  m_Name: Shield-green
   m_EditorClassIdentifier: 
-  _speed: 3
-  _lifespan: 2
-  _damage: 10
-  _material: {fileID: 2100000, guid: 8b11b5966ef04dd449d3618d8393d636, type: 2}
-  _damageLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  _defenseType: 2

@@ -8,9 +8,11 @@ public class BulletSO : ScriptableObject
     [SerializeField] private float _damage;
     [SerializeField] private Material _material;
     [SerializeField] private LayerMask _damageLayer;
+    [SerializeField] private DamageType _damageType;
     public float Speed => _speed;
     public float Lifespan => _lifespan;
     public float Damage => _damage;
     public Material Material => _material;
     public LayerMask DamageLayer => _damageLayer;
+    public DamageType DamageType => _damageType;
 }

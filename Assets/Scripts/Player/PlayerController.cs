@@ -1,7 +1,8 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IDamageable<DamageType>
 {
     [SerializeField] private float _isGroundedDistance;
     [SerializeField] private Transform _groundedStartPosition;
@@ -20,8 +21,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         Gizmos.DrawLine(_groundedStartPosition.position, _groundedStartPosition.position + Vector3.down * _isGroundedDistance);
     }
 
-    public void DealDamage(float damage)
+    public void DealDamage(float damage, DamageType damageType)
     {
+        if (_playerShieldController.ActiveShield != null && 
+            _playerShieldController.ActiveShield.DefenseType == damageType) return;
         _healthController.ReduceHealth(damage);
     }
 }

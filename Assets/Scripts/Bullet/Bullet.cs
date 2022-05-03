@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private BulletSO _bulletSo;
@@ -17,10 +16,10 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        var damageable = other.gameObject.GetComponent<IDamageable>();
+        var damageable = other.gameObject.GetComponent<IDamageable<DamageType>>();
         if(damageable != null && ((1<<other.gameObject.layer) & _bulletSo.DamageLayer) != 0)
         {
-            damageable.DealDamage(_bulletSo.Damage);
+            damageable.DealDamage(_bulletSo.Damage, _bulletSo.DamageType);
             Deact();            
         }    
     }

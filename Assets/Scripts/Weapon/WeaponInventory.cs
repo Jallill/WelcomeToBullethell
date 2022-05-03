@@ -12,6 +12,7 @@ public class WeaponInventory : MonoBehaviour
 
     public IWeapon GetWeapon(int index = 0)
     {
-        return _weapons[index];
+        
+        return _weapons?[index];
     }
 }
