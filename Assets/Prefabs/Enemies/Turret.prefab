@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 809132506037915595}
   - component: {fileID: 7378468287111917386}
   - component: {fileID: 3897212259684186482}
+  - component: {fileID: 7443779458442715528}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Enemy
@@ -160,7 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySo: {fileID: 11400000, guid: 544745ca85721d44f9591e45aa3b7923, type: 2}
   _healthController: {fileID: 809132506037915595}
-  enemyBulletPattern: {fileID: 3897212259684186482}
+  _enemyBulletPattern: {fileID: 3897212259684186482}
+  _enemyMovement: {fileID: 7443779458442715528}
   _canShoot: 1
 --- !u!114 &3897212259684186482
 MonoBehaviour:
@@ -175,6 +177,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBulletPatternSo: {fileID: 11400000, guid: da711b37e5f491b499912ea3789d337c, type: 2}
+--- !u!114 &7443779458442715528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809132506037915598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43edb1899b43402290bf63e4b05de942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7980573209242023810
 PrefabInstance:
   m_ObjectHideFlags: 0

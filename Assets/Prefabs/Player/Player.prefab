@@ -476,6 +476,7 @@ MonoBehaviour:
     m_Bits: 128
   _healthController: {fileID: 7893926627593822790}
   _playerShieldController: {fileID: 796721509}
+  _collider: {fileID: 2564251578353425118}
 --- !u!114 &2564251578353425107
 MonoBehaviour:
   m_ObjectHideFlags: 0

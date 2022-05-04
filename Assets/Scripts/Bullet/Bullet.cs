@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         {
             damageable.DealDamage(_bulletSo.Damage, _bulletSo.DamageType);
             Deact();            
-        }    
+        }
     }
 
     private void Update()
