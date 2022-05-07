@@ -22,7 +22,7 @@ public class WallEnemy : Enemy
         _currentTravelPosition = _endPosition;
     }
 
-    public override void DealDamage(float damage, DamageType damageType)
+    public override void TakeDamage(float damage, DamageType damageType)
     {
         // Do nothing
     }
@@ -51,10 +51,10 @@ public class WallEnemy : Enemy
     private void OnTriggerEnter(Collider other)
     {
         
-        var damageable = other.gameObject.GetComponent<IDamageable<DamageType>>();
+        var damageable = other.gameObject.GetComponent<IDamageable>();
         if(damageable != null && ((1<<other.gameObject.layer) & _damageLayer) != 0)
         {
-            damageable.DealDamage(_damage, _damageType);
+            damageable.TakeDamage(_damage, _damageType);
         }
     }
 

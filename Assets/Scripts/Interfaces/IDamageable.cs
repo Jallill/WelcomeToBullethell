@@ -1,7 +1,8 @@
 ﻿
 using UnityEngine;
 
-public interface IDamageable<DamageType>
+public interface IDamageable
 {
-        void DealDamage(float damage, DamageType damageType);
+        void TakeDamage(float damage, DamageType damageType);
+        
 }

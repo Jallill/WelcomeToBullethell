@@ -56,13 +56,4 @@ public class HealthController : MonoBehaviour, IHealth, IObservable<float>
     {
         if(_subscribers.Count > 0) _subscribers.ForEach((observer) => observer.OnNotify(message));
     }
-    
-    // TEST
-    private void Update()
-    {
-        if (Keyboard.current.f2Key.wasPressedThisFrame)
-        {
-            ReduceHealth(10);
-        }
-    }
 }

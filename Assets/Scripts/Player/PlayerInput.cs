@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     private bool _secondaryFirePerformed;
     private bool _jumpPerformed;
     private Vector2 _movement;
-    private Vector2 _rotation;
+    private Vector3 _rotation;
     
     public event InputEventHandler PrimaryFireEventStarted;
     public event InputEventHandler PrimaryFireEventPerformed;
@@ -28,11 +28,29 @@ public class PlayerInput : MonoBehaviour
     public bool SecondaryFirePerformed => _secondaryFirePerformed;
     public bool JumpPerformed => _jumpPerformed;
     public Vector2 Movement => _movement;
-    public Vector2 Rotation => _rotation;
+    public Vector3 Rotation => _rotation;
+
+    private Camera _camera;
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
+    
+    private void Update()
+    {
+        var cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue()); //TODO: Change it so the PlayerInput is the one returning the Vector3 position of the mouse
+        var groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+        if (groundPlane.Raycast(cameraRay, out var rayLength))
+        {
+            _rotation = cameraRay.GetPoint(rayLength);
+            Debug.DrawLine(cameraRay.origin, _rotation, Color.cyan);
+        }
+    }
 
     public void Look(InputAction.CallbackContext context)
     {
-        _rotation = context.ReadValue<Vector2>();
+        // _rotation = context.ReadValue<Vector2>();
     }
     
     public void Move(InputAction.CallbackContext context)

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Enemy : MonoBehaviour, IDamageable<DamageType>, IEnemy
+public class Enemy : MonoBehaviour, IDamageable, IEnemy
 {
 
     [SerializeField] protected EnemySO _enemySo;
@@ -11,6 +12,8 @@ public class Enemy : MonoBehaviour, IDamageable<DamageType>, IEnemy
     [SerializeField] protected EnemyMovement _enemyMovement;
 
     [SerializeField] private bool _canShoot;
+
+    private bool _dead;
     
     private void Awake()
     {
@@ -19,7 +22,7 @@ public class Enemy : MonoBehaviour, IDamageable<DamageType>, IEnemy
         meshRenderer.material = _enemySo.Material;
     }
 
-    public virtual void DealDamage(float damage, DamageType damageType)
+    public virtual void TakeDamage(float damage, DamageType damageType)
     {
         _healthController.ReduceHealth(damage);
         if(_healthController.CurrentHealth <= 0) Die();
@@ -27,7 +30,9 @@ public class Enemy : MonoBehaviour, IDamageable<DamageType>, IEnemy
 
     protected virtual void Die()
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        _dead = true;
+        gameObject.SetActive(false);
     }
 
     protected virtual void Update()
@@ -38,5 +43,10 @@ public class Enemy : MonoBehaviour, IDamageable<DamageType>, IEnemy
     public virtual void Shoot()
     {
         _enemyBulletPattern.Shoot(transform.position, transform.rotation, _enemySo.Bullet);
+    }
+
+    public bool IsDead()
+    {
+        return _dead;
     }
 }
