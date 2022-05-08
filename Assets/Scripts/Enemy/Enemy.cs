@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemy
 
     public virtual void Shoot()
     {
-        _enemyBulletPattern.Shoot(transform.position, transform.rotation, _enemySo.Bullet);
+        _enemyBulletPattern.Shoot(transform.position, transform.rotation, _enemySo.Bullets[0]);
     }
 
     public bool IsDead()

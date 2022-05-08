@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd49629ec8394c2a9d47d8ec2694add9, type: 3}
-  m_Name: Weapon-pistol
+  m_Script: {fileID: 11500000, guid: 28aa563fc6364b01897fffa3b5b2db58, type: 3}
+  m_Name: Enemy-wall-green
   m_EditorClassIdentifier: 
-  _rateOfFire: 0.5
-  _bullet: {fileID: 4574681506954175141, guid: 3153780a04de411419346446dc264dd8, type: 3}
+  _maxHealth: 9999999
+  _bullet: {fileID: 0}
+  _movementSpeed: 5
+  _material: {fileID: 2100000, guid: 46944e995c3f3a6418978b1f19fd12cb, type: 2}

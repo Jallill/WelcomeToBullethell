@@ -61,9 +61,9 @@ public class WallEnemy : Enemy
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(_startPosition, 1);
+        Gizmos.DrawWireSphere(transform.position, 1);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_endPosition, 1);
+        Gizmos.DrawWireSphere(transform.position + transform.forward*_travelDistance, 1);
     }
 }

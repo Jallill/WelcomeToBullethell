@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletPattern-basic
   m_EditorClassIdentifier: 
   _shootingQuantity: 5
-  _angleSpeed: 0
-  _shootingSpeed: 3
+  _angleSpeed: 10
+  _shootingSpeed: 0.5

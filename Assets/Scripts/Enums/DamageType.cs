@@ -3,5 +3,6 @@ public enum DamageType
 {
     DefaultDamage,
     PurpleDamage,
-    GreenDamage
+    GreenDamage,
+    RedDamage
 }

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28aa563fc6364b01897fffa3b5b2db58, type: 3}
-  m_Name: Enemy-wall
+  m_Name: Enemy-moving-purple
   m_EditorClassIdentifier: 
-  _maxHealth: 9999999
-  _bullet: {fileID: 0}
+  _maxHealth: 100
+  _bullets:
+  - {fileID: 213214137937674736, guid: 152ae7fbee76e174f9c17af107b9d49c, type: 3}
   _movementSpeed: 5
-  _material: {fileID: 2100000, guid: 46944e995c3f3a6418978b1f19fd12cb, type: 2}
+  _material: {fileID: 2100000, guid: 260e1fafec714e44ca4179f7c7a085ba, type: 2}

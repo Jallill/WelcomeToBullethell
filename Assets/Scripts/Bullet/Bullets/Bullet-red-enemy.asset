@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62666f289547433c9c027e3b42001eda, type: 3}
-  m_Name: Bullet-purple-player
+  m_Name: Bullet-red-enemy
   m_EditorClassIdentifier: 
-  _speed: 3
-  _lifespan: 2
-  _damage: 10
-  _material: {fileID: 2100000, guid: 8b11b5966ef04dd449d3618d8393d636, type: 2}
+  _speed: 1
+  _lifespan: 10
+  _damage: 5
+  _material: {fileID: 2100000, guid: 2205eed948a9f7b449e7c373ae9e0c60, type: 2}
   _damageLayer:
     serializedVersion: 2
-    m_Bits: 256
-  _damageType: 1
+    m_Bits: 8
+  _damageType: 3
