@@ -38,7 +38,7 @@ public class PlayerInput : MonoBehaviour
     
     private void Update()
     {
-        var cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue()); //TODO: Change it so the PlayerInput is the one returning the Vector3 position of the mouse
+        var cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         var groundPlane = new Plane(Vector3.up, Vector3.zero);
 
         if (groundPlane.Raycast(cameraRay, out var rayLength))

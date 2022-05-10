@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28aa563fc6364b01897fffa3b5b2db58, type: 3}
   m_Name: Enemy-moving-green
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 20
   _bullets:
   - {fileID: 213214137937674736, guid: e11d61ef0464da44d9919c664348c44b, type: 3}
   _movementSpeed: 5

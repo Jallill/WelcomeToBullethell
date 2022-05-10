@@ -244,11 +244,9 @@ GameObject:
   - component: {fileID: 8077101315151666875}
   - component: {fileID: 2564251578353425111}
   - component: {fileID: 2564251578353425117}
-  - component: {fileID: 2564251578353425108}
   - component: {fileID: 2564251578353425110}
   - component: {fileID: 7893926627593822790}
   - component: {fileID: 796721509}
-  - component: {fileID: 2564251578353425096}
   - component: {fileID: 2564251578353425109}
   - component: {fileID: 2564251578353425107}
   - component: {fileID: 2564251578353425106}
@@ -385,20 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 2564251578353425107}
---- !u!114 &2564251578353425108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564251578353425116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a39c737e3e541d8807c84764a36fc71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInput: {fileID: 2564251578353425107}
-  _speed: 5
 --- !u!114 &2564251578353425110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,22 +426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 2564251578353425107}
   _shieldInventory: {fileID: 2684499343669045281}
---- !u!114 &2564251578353425096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564251578353425116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fad3f84b99437e4fb379c27059030ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInput: {fileID: 2564251578353425107}
-  _playerController: {fileID: 2564251578353425109}
-  _rigidbody: {fileID: 2564251578353425111}
-  _jumpForce: 300
 --- !u!114 &2564251578353425109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39d12be4e0a4119aaa2f756ab4fe351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
+  _jumpForce: 300
   _isGroundedDistance: 0.3
   _groundedStartPosition: {fileID: 2564251577018444303}
   _groundLayer:
@@ -478,6 +448,8 @@ MonoBehaviour:
   _healthController: {fileID: 7893926627593822790}
   _playerShieldController: {fileID: 796721509}
   _collider: {fileID: 2564251578353425118}
+  _rigidbody: {fileID: 2564251578353425111}
+  _playerInput: {fileID: 2564251578353425107}
 --- !u!114 &2564251578353425107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +668,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2564251578353425105}
     m_Modifications:
+    - target: {fileID: 7348234906895936036, guid: 547876f6df6a6ee4889169260f807d14, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348234906895936036, guid: 547876f6df6a6ee4889169260f807d14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7348234907224762593, guid: 547876f6df6a6ee4889169260f807d14, type: 3}
       propertyPath: m_Name
       value: HealthBar

@@ -5,21 +5,59 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable, IObservable<bool>
 {
+    [Header("Attributes")] 
+    [Range(0,20)][SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
+    
+    [Header("Grounded")]
     [SerializeField] private float _isGroundedDistance;
     [SerializeField] private Transform _groundedStartPosition;
     [SerializeField] private LayerMask _groundLayer;
+    
+    [Header("Attributes controllers")]
     [SerializeField] private HealthController _healthController;
     [SerializeField] private PlayerShieldController _playerShieldController;
-
     [SerializeField] private CapsuleCollider _collider;
-
+    [SerializeField] private Rigidbody _rigidbody;
+    
+    [Header("Input")]
+    [SerializeField] private PlayerInput _playerInput;
+    
+    private MoveCommand _moveCommand;
+    private JumpCommand _jumpCommand;
+    private RotateCommand _rotateCommand;
+    
     private bool _dead;
     public bool IsDead => _dead;
     
     private List<IObserver<bool>> _subscribers = new List<IObserver<bool>>();
     public List<IObserver<bool>> Subscribers => _subscribers;
 
+    private void Start()
+    {
+        InitCommands();
+
+        _playerInput.JumpEventPerformed += Jump;
+    }
+
+    private void InitCommands()
+    {
+        _moveCommand = new MoveCommand(transform, _speed);
+        _jumpCommand = new JumpCommand(_rigidbody, _jumpForce);
+        _rotateCommand = new RotateCommand(transform);
+    }
+
+    private void Jump()
+    {
+        if(IsGrounded()) _jumpCommand.Do();
+    }
     
+    private void Update()
+    {
+        _moveCommand.Do(new Vector3(_playerInput.Movement.x, 0, _playerInput.Movement.y));
+        _rotateCommand.Do(new Vector3(_playerInput.Rotation.x, transform.position.y, _playerInput.Rotation.z));
+    }
+
     public bool IsGrounded()
     {
         float capsuleHeight = Mathf.Max(_collider.radius * 2f, _collider.height);
@@ -35,10 +73,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IObservable<bool>
             {
                 float maxDist = radius / Mathf.Cos(Mathf.Deg2Rad * normalAngle) - radius + .02f;
                 return hit.distance < maxDist;
-
             }
         }
-
         return false;
     }
 

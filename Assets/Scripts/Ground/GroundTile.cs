@@ -14,6 +14,8 @@ public class GroundTile : MonoBehaviour, IGroundTile
     private bool _fallen;
 
     public bool Fallen => _fallen;
+    public Vector3 Position => transform.position;
+    public Quaternion Rotation => transform.rotation;
     
     private void Awake()
     {
@@ -24,16 +26,18 @@ public class GroundTile : MonoBehaviour, IGroundTile
 
     public void ResetPosition()
     {
-        _rigidbody.isKinematic = true;
-        transform.position = _initialPosition;
-        transform.rotation = _initialRotation;
-        _rigidbody.AddForce(Vector3.down * _fallForce);
-        _fallen = false;
+        
     }
 
     public void Fall()
     {
         _rigidbody.isKinematic = false;
         _fallen = true;
+        Invoke(nameof(Deactivate), 2f);
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
