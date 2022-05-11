@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bullet-green-enemy
   m_EditorClassIdentifier: 
   _speed: 1
-  _lifespan: 10
+  _lifespan: 20
   _damage: 5
   _material: {fileID: 2100000, guid: 989b91c0b2bda1d468ec41990f24eb8d, type: 2}
   _damageLayer:

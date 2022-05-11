@@ -8,12 +8,13 @@ public class VoidEnemy : Enemy, IObserver<bool>
     [SerializeField] private LevelController _levelController;
     [SerializeField] private float _damage;
     [SerializeField] private LayerMask _damageLayer;
-    
-    private void Start()
+
+    protected override void Start()
     {
+        base.Start();
         _levelController.WinCondition.Subscribe(this);
     }
-    
+
     public override void TakeDamage(float damage, DamageType damageType)
     {
         // Do nothing

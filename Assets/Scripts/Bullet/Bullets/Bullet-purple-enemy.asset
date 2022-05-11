@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bullet-purple-enemy
   m_EditorClassIdentifier: 
   _speed: 1
-  _lifespan: 10
+  _lifespan: 20
   _damage: 5
   _material: {fileID: 2100000, guid: 8b11b5966ef04dd449d3618d8393d636, type: 2}
   _damageLayer:

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd49629ec8394c2a9d47d8ec2694add9, type: 3}
   m_Name: Weapon-shotgun
   m_EditorClassIdentifier: 
-  _rateOfFire: 1.2
+  _rateOfFire: 0.6
   _bullet: {fileID: 4574681506954175141, guid: 3153780a04de411419346446dc264dd8, type: 3}

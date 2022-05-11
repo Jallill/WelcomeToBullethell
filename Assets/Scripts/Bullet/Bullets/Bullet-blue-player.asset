@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62666f289547433c9c027e3b42001eda, type: 3}
   m_Name: Bullet-blue-player
   m_EditorClassIdentifier: 
-  _speed: 7
-  _lifespan: 5
+  _speed: 10
+  _lifespan: 6
   _damage: 5
   _material: {fileID: 2100000, guid: 5f156eaaaa3d2704c990e023133112ec, type: 2}
   _damageLayer:

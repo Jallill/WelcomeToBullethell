@@ -20,6 +20,12 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemy
         _healthController.MaxHealth = _enemySo.MaxHealth;
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = _enemySo.Material;
+        
+    }
+
+    protected virtual void Start()
+    {
+        if (_canShoot) _enemyBulletPattern.InitShootCommands(_enemySo.Bullets);
     }
 
     public virtual void TakeDamage(float damage, DamageType damageType)
@@ -42,7 +48,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemy
 
     public virtual void Shoot()
     {
-        _enemyBulletPattern.Shoot(transform.position, transform.rotation, _enemySo.Bullets[0]);
+        _enemyBulletPattern.Shoot(_enemySo.Bullets[0]);
     }
 
     public bool IsDead()

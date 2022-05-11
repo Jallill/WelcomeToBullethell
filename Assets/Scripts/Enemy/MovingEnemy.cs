@@ -11,8 +11,9 @@ public class MovingEnemy : Enemy
     private Transform _currentWaypoint;
     private int _currentWaypointIndex;
     
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (_wayPoints.Length > 0)
         {
             _currentWaypointIndex = 0;

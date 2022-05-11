@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour, IPooleable, IProduct<BulletSO>
     }
 
     private Vector3 _direction;
+    private float _lifeTime;
 
     private void Awake()
     {
@@ -35,22 +36,22 @@ public class Bullet : MonoBehaviour, IPooleable, IProduct<BulletSO>
 
     private void Update()
     {
+        if (_lifeTime <= 0) Deact();
         transform.Translate(_direction * (_bulletSo.Speed*Time.deltaTime), Space.World);
         Debug.DrawLine(transform.position, transform.position + transform.forward, Color.blue);
+        _lifeTime -= Time.deltaTime;
     }
 
     public void Init(Vector3 spawnPosition ,Vector3 direction)
     {
+        _lifeTime = _bulletSo.Lifespan;
         gameObject.SetActive(true);
         transform.position = spawnPosition;
         _direction = direction;
-        Invoke(nameof(Deact), _bulletSo.Lifespan);
         _meshRenderer.material = _bulletSo.Material;
     }
 
-    
-
-    public void Deact()
+    private void Deact()
     {
         Release?.Invoke(this);
         gameObject.SetActive(false);

@@ -10,19 +10,14 @@ public class LevelController : MonoBehaviour, ILevel, IObserver<bool>
 {
     [SerializeField] private Levels _nextLevel;
     [SerializeField] private WinCondition _winCondition;
-
+    [SerializeField] private float _timeBeforeLevelChange;
+    
     public IWinCondition WinCondition => _winCondition;
 
     private void Start()
     {
         _winCondition.Subscribe(this);
         StartLevel();
-    }
-
-    private void Update()
-    {
-        if(Keyboard.current.f3Key.wasPressedThisFrame)
-            _winCondition.CheckWinCondition();
     }
 
     public virtual void StartLevel()
@@ -57,7 +52,7 @@ public class LevelController : MonoBehaviour, ILevel, IObserver<bool>
         else
         {
             //Game over logic
-            BackToLobby();
+            Invoke(nameof(BackToLobby), _timeBeforeLevelChange);
         }
     }
 }

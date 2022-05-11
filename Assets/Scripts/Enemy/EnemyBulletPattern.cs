@@ -1,27 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBulletPattern : MonoBehaviour
 {
     [SerializeField] private EnemyBulletPatternSO _enemyBulletPatternSo;
-    private ShootCommand _shootCommand; 
+    private Dictionary<Bullet, ShootCommand> _shootCommands = new Dictionary<Bullet, ShootCommand>();
     
     private float _nextShoot;
     private float _angle;
 
-    private void Awake()
+    public void InitShootCommands(Bullet[] bullets)
     {
-        // _shootCommand = new ShootCommand(_enemyBulletPatternSo.) TODO: Change how the bullets SO is stored and passed to the commands
+        foreach (var bullet in bullets)
+        {
+            _shootCommands.Add(bullet, new ShootCommand(bullet.Data, transform));            
+        }
     }
 
-    public void Shoot(Vector3 initialPosition, Quaternion initialDirection, Bullet bullet)
+    public void Shoot(Bullet bullet)
     {
         if (_nextShoot > 0) return;
         for (int i = 0; i < _enemyBulletPatternSo.ShootingQuantity; i++)
         {
             var newDirection = Quaternion.AngleAxis(i*(360/_enemyBulletPatternSo.ShootingQuantity) + _angle, Vector3.up) * Vector3.forward;
-            var newBullet = Instantiate(bullet, initialPosition, initialDirection);
-            newBullet.Init(transform.position, newDirection);
+            _shootCommands[bullet].Do(newDirection);
         }
 
         _nextShoot = _enemyBulletPatternSo.ShootingSpeed;

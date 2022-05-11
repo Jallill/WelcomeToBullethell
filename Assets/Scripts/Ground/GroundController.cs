@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class GroundController : MonoBehaviour
 {
     [SerializeField] private float _throwTilesSpeed;
-    [SerializeField] private LayerMask _playerLayer;
 
     private List<IGroundTile> _groundTiles = new List<IGroundTile>();
     private float _timer;
@@ -39,30 +38,15 @@ public class GroundController : MonoBehaviour
         _fallenTiles.Add(_groundTiles[index]);
     }
 
-    private void ThrowTile(List<IGroundTile> occupied = null)
+    private void ThrowTile()
     {
-        var _availableTiles = occupied == null ? 
-            _groundTiles.Where((tile) => !tile.Fallen).ToList() : 
-            _groundTiles.Where((tile) => !tile.Fallen && !occupied.Contains(tile)).ToList();
-        switch (_availableTiles.Count)
+        var _availableTiles =  _groundTiles.Where((tile) => !tile.Fallen && !tile.PlayerOnMe).ToList();
+        if (_availableTiles.Count == 0)
         {
-            case 0:
-                return;
-            case 1:
-                _availableTiles[0].Fall();
-                return;
-        }
-        var index = Random.Range(0, _availableTiles.Count);
-        var result = Physics.CheckBox(_availableTiles[index].Position, Vector3.one / 2,
-            _availableTiles[index].Rotation, _playerLayer);
-        if (result)
-        {
-            Debug.Log("FOUND PLAYER STANDING ON TILE");
-            if (occupied == null) occupied = new List<IGroundTile>();
-            occupied.Add(_groundTiles[index]);
-            ThrowTile(occupied);
+            _groundTiles[0].Fall();
             return;
         }
+        var index = Random.Range(0, _availableTiles.Count);
         _availableTiles[index].Fall();
     }
     
